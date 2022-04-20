@@ -2,7 +2,7 @@
 
 
 
-### cd direcoty
+### cd in the direcoty
 
 ### Run command
 
