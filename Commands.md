@@ -45,10 +45,31 @@ To see what images are already installed on your machine use
 $ docker image ls
 
 
+To list the containers that we have built: docker container ls
+The -a flag allows us to see both stopped and running containers.
+$ docker container ls –a
 
+Running containers interactively allows you to run commands inside the container if it supports it.
+$ docker run -it openjdk
 
+To see what containers are currently running
+$ docker ps
 
+Interactive shell
+$ docker run -it ubuntu bash
 
+To build a docker image using a Dockerfile we can use the docker image build
+command and provide it the directory where the Dockerfile exists. The --tag
+option allows us to name and tag the docker image.
+$ docker image build . --tag "dockerimagename:version"
 
+To run docker compose file 
+$ docker-compose up
+
+Stop Containers
+$ docker-compose down
+
+To remove all unused docker resources
+docker system prune --all
 
 
