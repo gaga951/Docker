@@ -214,7 +214,29 @@ $ docker push username/image name
 $ docker commit conatainer id username/imagename
 
 
+### Docker gives 3 default networks: bridge, none and host. When you start Docker, a default bridge network (also called bridge) is created automatically, and newly-started containers connect to it unless otherwise specified.
+
+$ docker network ls
+
+$ docker network inspect bridge
   
-  
-  
-  
+### Docker Networking: Port Mapping
+
+$ docker run –p 80:5000 nginx  (in this case 5000 is Container port)
+
+## Docker Volumes commands
+### Create a volume
+$ docker volume create      
+
+### Display detailed information on one or more volumes
+$ docker volume inspect     
+
+### List volumes
+$ docker volume ls          
+
+### Remove all unused local volumes
+$ docker volume prune       
+
+### Remove one or more volumes
+$ docker volume rm          
+
