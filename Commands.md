@@ -1,3 +1,26 @@
+### To get all version information of the client and server is the
+
+$ docker version
+
+### To get only the server version details
+$ docker version --format '{{.Server.Version}}'
+
+######################################################
+
+## container restart by itself while using certain docker-defined policies while using the $ docker run command. 
+### Following are the available policies:
+
+1. Oﬀ: In this, the container won’t be restarted in case it's stopped or it fails.
+2. On-failure: Here, the container restarts by itself only when it experiences
+failures not associated with the user.
+3. Unless-stopped: Using this policy, ensures that a container can restart only
+when the command is executed to stop it by the user.
+4. Always: Irrespective of the failure or stopping, the container always gets
+restarted in this type of policy.
+
+$ docker run -dit — restart [restart-policy-value] [container_name]
+
+
 ######################################################
 # To delete all containers including its volumes use,
 
@@ -90,4 +113,22 @@ $ docker stop containername
 
 $ docker start containername
 
+### The images can be pushed to Docker Hub through the
 
+$ docker push
+
+
+### to export a docker image as an archive use
+$ docker save -o <exported_name>.tar <container-name>
+
+### to import a pre-exported Docker image into another Docker host use
+  
+$ docker load -i <export_image_name>.tar
+  
+  
+  
+  
+  
+  
+  
+  
