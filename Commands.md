@@ -70,6 +70,14 @@ $ docker container start -i examplecontainer
 
 $ docker run hello-world
 
+
+### -d means the container needs to start in the detached mode.
+Detached mode, started by the option --detach or –d flag in docker run command, means that a Docker container runs in the background of your terminal. 
+It does not receive input or display output. Using detached mode also allows you to close the opened terminal session without stopping the container.
+
+$ docker run -it -d <image_name>
+
+
 ### To see what images are already installed on your machine use
 
 $ docker image ls
@@ -87,9 +95,45 @@ $ docker run -it openjdk
 
 $ docker ps
 
-### Interactive shell
+### Container level logging can be done using the command: 
+$ sudo docker run –it <container_name> /bin/bash
+
+### example of accessing Interactive shell
 
 $ docker run -it ubuntu bash
+
+### The exec command lets you get inside a container and work with it
+
+$ docker exec -it containerid bash
+
+## -i : interactive or STD_IN
+## -t : terminal or STD_OUT
+
+
+### In order to check for the container level logs, we can run the command:
+
+sudo docker logs <container_id>
+
+
+# gives the config and meta data used to start this container; returns JSON array
+
+$ docker container inspect container-id
+
+### Logs
+
+$ docker container logs container_name
+
+$ docker container logs -f container_name
+  
+### Lists specific processes in a specific container
+  
+$ docker top containername
+  
+### Get CPU, Mem usage of the container
+  
+$ docker container stats containername
+
+
 
 ### To build a docker image using a Dockerfile we can use the docker image build command and provide it the directory where the Dockerfile exists. The --tag option allows us to name and tag the docker image.
 
@@ -99,7 +143,15 @@ $ docker image build . --tag "dockerimagename:version"
 
 $ docker-compose up
 
+### In order to run docker-compose with JSON
+
+$ docker-compose -f docker-compose.json up
+
+### The docker-compose stop command will stop your containers, but it won't remove them. 
+$ docker-compose stop
+
 ### Stop Containers using compose file
+### will stop your containers, but it also removes the 
 
 $ docker-compose down
 
@@ -113,21 +165,55 @@ $ docker stop containername
 
 $ docker start containername
 
+### To kill a container use
+
+$ docker kill container_id
+
 ### The images can be pushed to Docker Hub through the
 
 $ docker push
 
 
-### to export a docker image as an archive use
-$ docker save -o <exported_name>.tar <container-name>
+### To export a docker image as an archive use
 
-### to import a pre-exported Docker image into another Docker host use
+$ docker save -o exported_name.tar container-name
+  
+### To import a pre-exported Docker image into another Docker host use
   
 $ docker load -i <export_image_name>.tar
-  
-  
-  
-  
+
+### for syncing a directory of a container with any of the host directories
+### The belove command mounts the directory /data/app in the host to the usr/src/app directory. 
+### We can sync the container with the data files from the host without having the need to restart it.
+### This also ensures data security in cases of container deletion.
+
+$ docker run -v /data/app:usr/src/app myapp
+
+############################################
+## Where are docker volumes stored in docker?
+
+### Volumes are created and managed by Docker and cannot be accessed by non-docker entities. 
+### They are stored in Docker host filesystem at /var/lib/docker/volumes/
+############################################
+
+### Information about Docker installed on the host system.
+### The information can be like what is the number of containers or images and in what state they are running and hardware specifications like total memory allocated, speed of the processor, kernel version, etc
+
+$ docker info
+
+### To login to the docker registry
+
+$ docker login
+
+### push image to docker hub
+
+$ docker push username/image name
+
+### edit  and update container
+
+$ docker commit conatainer id username/imagename
+
+
   
   
   
