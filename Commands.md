@@ -76,12 +76,18 @@ $ docker image build . --tag "dockerimagename:version"
 
 $ docker-compose up
 
-### Stop Containers
+### Stop Containers using compose file
 
 $ docker-compose down
 
 ### To remove all unused docker resources
 
 $ docker system prune --all
+
+### To Start or Stop single or multiple docker containers
+
+$ docker stop containername
+
+$ docker start containername
 
 
