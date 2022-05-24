@@ -53,6 +53,10 @@ It does not receive input or display output. Using detached mode also allows you
 
 $ docker run -it -d <image_name>
 
+### Docker Name container
+
+$ docker run -d -it --name=server1 ubuntu 
+
 ### To see what images are already installed on your machine use
 
 $ docker images
@@ -88,12 +92,13 @@ $ docker run -it ubuntu bash
 
 ### The exec command lets you get inside a container and work with it
 
-$ docker exec -it containerID bash
+$ docker exec -it containerID/containerNAME bash
 
 ## -i : interactive or STD_IN
 ## -t : terminal or STD_OUT
 
-### ################
+### ###########################
+### ###########################
 
 ### For instance, to run a container from the Ubuntu image, assigning 1 GB of RAM for the container to use and reserving 1 GB of RAM for swap memory, type:
 
@@ -111,7 +116,9 @@ $ docker run -it --cpus="1.0" ubuntu
 
 $ docker run -it --cpus-shares="700" ubuntu
 
-### ################
+
+### ###########################
+### ###########################
 
 ### In order to check for the container level logs, we can run the command:
 
