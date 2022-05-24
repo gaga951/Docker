@@ -5,47 +5,6 @@ $ docker version
 ### To get only the server version details
 $ docker version --format '{{.Server.Version}}'
 
-######################################################
-
-## container restart by itself while using certain docker-defined policies while using the $ docker run command. 
-### Following are the available policies:
-
-1. Oﬀ: In this, the container won’t be restarted in case it's stopped or it fails.
-2. On-failure: Here, the container restarts by itself only when it experiences
-failures not associated with the user.
-3. Unless-stopped: Using this policy, ensures that a container can restart only
-when the command is executed to stop it by the user.
-4. Always: Irrespective of the failure or stopping, the container always gets
-restarted in this type of policy.
-
-$ docker run -dit — restart [restart-policy-value] [container_name]
-
-
-######################################################
-# To delete all containers including its volumes use,
-
-docker rm -vf $(docker ps -aq)
-To delete all the images,
-
-docker rmi -f $(docker images -aq)
-Remember, you should remove all the containers before removing all the images from which those containers were created.
-
-For Windows (power shell, not cmd)
-
-In case you are working on Windows (Powershell),
-
-$images = docker images -a -q
-foreach ($image in $images) { docker image rm $image -f }
-Based on the comment from CodeSix, one liner for Windows Powershell,
-
-docker images -a -q | % { docker image rm $_ -f }
-For Windows using command line,
-
-for /F %i in ('docker images -a -q') do docker rmi -f %i
-
-###########################################################
-
-
 ### There are many publicly available images that we can use to work with Docker.
 
 $ docker pull hello-world
@@ -239,4 +198,47 @@ $ docker volume prune
 
 ### Remove one or more volumes
 $ docker volume rm          
+
+######################################################
+
+## container restart by itself while using certain docker-defined policies while using the $ docker run command. 
+### Following are the available policies:
+
+1. Oﬀ: In this, the container won’t be restarted in case it's stopped or it fails.
+2. On-failure: Here, the container restarts by itself only when it experiences
+failures not associated with the user.
+3. Unless-stopped: Using this policy, ensures that a container can restart only
+when the command is executed to stop it by the user.
+4. Always: Irrespective of the failure or stopping, the container always gets
+restarted in this type of policy.
+
+$ docker run -dit — restart [restart-policy-value] [container_name]
+
+
+######################################################
+# To delete all containers including its volumes use:
+
+docker rm -vf $(docker ps -aq)
+
+### To delete all the images use:
+
+docker rmi -f $(docker images -aq)
+
+Remember, you should remove all the containers before removing all the images from which those containers were created.
+
+### For Windows (power shell, not cmd)
+
+In case you are working on Windows (Powershell),
+
+$images = docker images -a -q
+foreach ($image in $images) { docker image rm $image -f }
+
+Based on the comment from CodeSix, one liner for Windows Powershell,
+
+docker images -a -q | % { docker image rm $_ -f }
+For Windows using command line,
+
+for /F %i in ('docker images -a -q') do docker rmi -f %i
+
+###########################################################
 
