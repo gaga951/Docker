@@ -7,7 +7,7 @@ $ docker version --format '{{.Server.Version}}'
 
 ### There are many publicly available images that we can use to work with Docker.
 
-$ docker pull hello-world
+$ docker pull redis
 
 ### To list downloaded docker images
 
@@ -17,15 +17,32 @@ $ docker images
 
 $ docker create hello-world
 
+--------------------------------------
+
 ### To run a container use the 
 
-$ docker container start examplecontainer
+$ docker container start containerID
 
 ### The -i runs the container interactively and allows us to see the output
 
-$ docker container start -i examplecontainer
+$ docker container start -i containerID
 
-### This will create a new container for an image and run it
+
+### To list the containers that we have built: docker container ls. The -a flag allows us to see both stopped and running containers.
+
+$ docker container ls
+
+$ docker container ls –a
+
+or
+
+$ docker ps
+
+$ docker ps -a
+
+--------------------------------------
+
+### This will create a new container for an image and run it (Also downloads image if image doesn't exists)
 
 $ docker run hello-world
 
@@ -36,25 +53,33 @@ It does not receive input or display output. Using detached mode also allows you
 
 $ docker run -it -d <image_name>
 
-
 ### To see what images are already installed on your machine use
+
+$ docker images
+
+or
 
 $ docker image ls
 
-
-### To list the containers that we have built: docker container ls. The -a flag allows us to see both stopped and running containers.
-
-$ docker container ls –a
 
 ### Running containers interactively allows you to run commands inside the container if it supports it.
 
 $ docker run -it openjdk
 
-### To see what containers are currently running
 
-$ docker ps
+### To Start or Stop single or multiple docker containers
+
+$ docker stop containerID
+
+$ docker start containerID
+
+### To kill a container use
+
+$ docker kill container_id
+
 
 ### Container level logging can be done using the command: 
+
 $ sudo docker run –it <container_name> /bin/bash
 
 ### example of accessing Interactive shell
@@ -63,15 +88,34 @@ $ docker run -it ubuntu bash
 
 ### The exec command lets you get inside a container and work with it
 
-$ docker exec -it containerid bash
+$ docker exec -it containerID bash
 
 ## -i : interactive or STD_IN
 ## -t : terminal or STD_OUT
 
+### ################
+
+### For instance, to run a container from the Ubuntu image, assigning 1 GB of RAM for the container to use and reserving 1 GB of RAM for swap memory, type:
+
+$ docker run -it --memory="1g" --memory-swap="2g" ubuntu
+
+### As an example, for an Ubuntu container to have the memory reservation of 750 MB and the maximum RAM capacity of 1 BG, use the command:
+
+$ docker run -it --memory="1g" --memory-reservation="750m" ubuntu
+
+### For example, if you have a host with 2 CPUs and want to give a container access to one of them, use the option --cpus="1.0". The command for running an Ubuntu container with access to 1 CPU would be:
+
+$ docker run -it --cpus="1.0" ubuntu
+
+### You can also use the --cpu-shares option to give the container a greater or lesser proportion of CPU cycles. By default, this is set to 1024. To run a container with lesser CPU shares, run:
+
+$ docker run -it --cpus-shares="700" ubuntu
+
+### ################
 
 ### In order to check for the container level logs, we can run the command:
 
-sudo docker logs <container_id>
+$ sudo docker logs <container_id>
 
 
 # gives the config and meta data used to start this container; returns JSON array
@@ -117,16 +161,6 @@ $ docker-compose down
 ### To remove all unused docker resources
 
 $ docker system prune --all
-
-### To Start or Stop single or multiple docker containers
-
-$ docker stop containername
-
-$ docker start containername
-
-### To kill a container use
-
-$ docker kill container_id
 
 ### The images can be pushed to Docker Hub through the
 
