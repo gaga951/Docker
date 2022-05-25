@@ -1,8 +1,11 @@
+$ docker -h
+
 ### To get all version information of the client and server
 
 $ docker version
 
 ### To get only the server version details
+
 $ docker version --format '{{.Server.Version}}'
 
 $ docker --version
@@ -75,9 +78,15 @@ $ docker run -it openjdk
 
 ### To Start or Stop single or multiple docker containers
 
-$ docker stop containerID
+$ docker stop containerID/Name
 
-$ docker start containerID
+$ docker start containerID/Name
+
+or
+
+$ docker container stop containerID/Name
+
+$ docker container start containerID/Name
 
 ### To kill a container use
 
@@ -221,6 +230,11 @@ $ docker commit conatainer id username/imagename
 $ docker network ls
 
 $ docker network inspect bridge
+  
+### Create docker network for specific application
+  
+$ docker network create appnetworkName   
+  
   
 ### Docker Networking: Port Mapping
 
