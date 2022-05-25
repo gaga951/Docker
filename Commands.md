@@ -1,9 +1,11 @@
-### To get all version information of the client and server is the
+### To get all version information of the client and server
 
 $ docker version
 
 ### To get only the server version details
 $ docker version --format '{{.Server.Version}}'
+
+$ docker --version
 
 ### There are many publicly available images that we can use to work with Docker.
 
