@@ -316,4 +316,33 @@ for /F %i in ('docker images -a -q') do docker rmi -f %i
 ###########################################################
 ### Docker Root Directory Structure
 
-$ sudo tree -ACFL 1 /var/lib/docker
+$ sudo tree -ACFL 2 /var/lib/docker
+
+/var/lib/docker/
+├── buildkit/
+│   ├── cache.db
+│   ├── containerdmeta.db
+│   ├── content/
+│   ├── executor/
+│   ├── metadata_v2.db
+│   └── snapshots.db
+├── containers/
+├── image/
+│   └── overlay2/
+├── network/
+│   └── files/
+├── overlay2/
+│   ├── 01114513b5469c193c13e48dacf66265ee0ea291a4fedaff565d7bb9c2992a6e/
+│   ├── c71cf20b0cc99aed5ba1b4f0f95a79648fc9bd8247047696c9b94a81be3a4692/
+│   └── l/
+├── plugins/
+│   ├── storage/
+│   └── tmp/
+├── runtimes/
+├── swarm/
+├── tmp/
+├── trust/
+└── volumes/
+    ├── backingFsBlockDev
+    └── metadata.db
+
