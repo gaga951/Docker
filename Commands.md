@@ -8,7 +8,19 @@ $ docker version
 
 $ docker version --format '{{.Server.Version}}'
 
+$ docker version --format '{{json.}}'
+
 $ docker --version
+
+### Docker Info
+
+$ docker info
+
+$ docker info --format '{{json.}}'
+
+### Searchesimages in registry
+
+$ docker search redis
 
 ### There are many publicly available images that we can use to work with Docker.
 
@@ -216,6 +228,10 @@ $ docker info
 
 $ docker login
 
+### To logout to the docker registry
+
+$ docker logout
+
 ### push image to docker hub
 
 $ docker push username/image name
@@ -298,4 +314,6 @@ For Windows using command line,
 for /F %i in ('docker images -a -q') do docker rmi -f %i
 
 ###########################################################
+### Docker Root Directory Structure
 
+$ sudo tree -ACFL 1 /var/lib/docker
