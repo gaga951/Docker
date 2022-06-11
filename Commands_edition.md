@@ -92,7 +92,7 @@ $ docker run options IMAGE Non_Default_CMD CMD_Args
   
   -l, --label list                     Set meta data on a container
   
-      --log-driver string              Logging driver for the container
+  --log-driver string              Logging driver for the container
       
   -p, --publish list                   Publish a container's port(s) to the host
   
@@ -106,6 +106,6 @@ $ docker run options IMAGE Non_Default_CMD CMD_Args
   
   -w, --workdir string                 Working directory inside the container
   
-      --entrypoint string              Overwrite the default ENTRYPOINT of the image
+  --entrypoint string              Overwrite the default ENTRYPOINT of the image
 
 
