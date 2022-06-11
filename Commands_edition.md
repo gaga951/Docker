@@ -25,13 +25,50 @@ $ docker load
 $ docker save
 
 
+## Informational
 ### Shows history of images
 
 $ docker history
 
-
 ### Tags an image to a name
 $ docker tag
 
+### Shows running containers
 
+$ docker ps
+
+
+$ docker logs
+
+
+$ docker inspect
+
+
+$ docker events
+
+
+$ docker port
+
+
+$ docker top
+
+
+$ docker stats
+
+
+$ docker diff
+
+### Import/Export comands
+
+### Copies files or folders between a container and the local filesystem.
+
+$ docker cp
+
+### Turns container filesystem inot tarball archive stream to STDOUT
+
+$ docker export
+
+### To execute a command in container
+
+$ docker exec
 
