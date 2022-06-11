@@ -32,3 +32,6 @@ $ docker history
 
 ### Tags an image to a name
 $ docker tag
+
+
+
