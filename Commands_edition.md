@@ -31,30 +31,38 @@ $ docker save
 $ docker history
 
 ### Tags an image to a name
+
 $ docker tag
 
 ### Shows running containers
 
 $ docker ps
 
+### Gets logs from container
 
 $ docker logs
 
+### Looks at all the info on a container
 
 $ docker inspect
 
+### Gets events from container
 
 $ docker events
 
+### Shows public facing port of container
 
 $ docker port
 
+### Show running processes in container
 
 $ docker top
 
+### Shows containers resource usage statistics
 
 $ docker stats
 
+### shows changed files in the container's FS
 
 $ docker diff
 
@@ -71,4 +79,20 @@ $ docker export
 ### To execute a command in container
 
 $ docker exec
+
+$ docker run options IMAGE Non_Default_CMD CMD_Args
+  -d, --detach                         Run container in background and print container ID
+  -e, --env list                       Set environment variables
+  -h, --hostname string                Container host name
+  -i, --interactive                    Keep STDIN open even if not attached
+  -l, --label list                     Set meta data on a container
+      --log-driver string              Logging driver for the container
+  -p, --publish list                   Publish a container's port(s) to the host
+  -P, --publish-all                    Publish all exposed ports to random ports
+  -t, --tty                            Allocate a pseudo-TTY
+  -u, --user string                    Username or UID (format: <name|uid>[:<group|gid>])
+  -v, --volume list                    Bind mount a volume
+  -w, --workdir string                 Working directory inside the container
+      --entrypoint string              Overwrite the default ENTRYPOINT of the image
+
 
