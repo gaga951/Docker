@@ -241,16 +241,40 @@ $ docker push username/image name
 $ docker commit conatainer id username/imagename
 
 
+
+### Connect a container to a network
+
+$ docker network connect
+
+### create a network
+
+$ docker network create
+
+### Create docker network for specific application
+  
+$ docker network create appnetworkName   
+
+### Diconnect a container from a network
+
+$ docker network disconnect
+
+### Display detailed information on one or more networks
+
+$ docker network inspect
+
 ### Docker gives 3 default networks: bridge, none and host. When you start Docker, a default bridge network (also called bridge) is created automatically, and newly-started containers connect to it unless otherwise specified.
 
 $ docker network ls
 
 $ docker network inspect bridge
+
+### Remove all unused networks
   
-### Create docker network for specific application
+$ docker network prune
   
-$ docker network create appnetworkName   
+### Remove one or more networks
   
+$ docker network rm   
   
 ### Docker Networking: Port Mapping
 
