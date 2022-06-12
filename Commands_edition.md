@@ -34,6 +34,35 @@ $ docker history
 
 $ docker tag
 
+### Create volume
+
+$ docker volume create
+
+### Display detailed information on one or more volumes
+
+$ docker volume inspect
+
+### list volumes
+
+$ docker volumes ls
+
+### Remove all unuse local volumes
+
+$ docker volume prune
+
+### Remove one ore more volumes
+
+$ docker volume rm
+
+
+
+
+
+
+
+
+
+
 ### Shows running containers
 
 $ docker ps
