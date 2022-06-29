@@ -12,7 +12,7 @@ $ docker node ls
 
 Create and Run Compose File from "Master" node
 
-$ docker stack deploy --compose-file docker-compose.yml wp-site
+$ docker stack deploy --compose-file wp_site.yaml wp-site
 
 Check it by commands
 
