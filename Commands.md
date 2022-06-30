@@ -140,6 +140,51 @@ $ docker run -it --cpus="1.0" ubuntu
 $ docker run -it --cpus-shares="700" ubuntu
 
 
+### Import/Export comands
+
+### Copies files or folders between a container and the local filesystem.
+
+$ docker cp
+### create an images from a tarball
+
+$ docker import
+
+### Turns container filesystem inot tarball archive stream to STDOUT
+
+$ docker export
+
+### To execute a command in container
+
+$ docker exec
+
+$ docker run options IMAGE Non_Default_CMD CMD_Args
+
+  -d, --detach                         Run container in background and print container ID
+  
+  -e, --env list                       Set environment variables
+  
+  -h, --hostname string                Container host name
+  
+  -i, --interactive                    Keep STDIN open even if not attached
+  
+  -l, --label list                     Set meta data on a container
+  
+  --log-driver string              Logging driver for the container
+      
+  -p, --publish list                   Publish a container's port(s) to the host
+  
+  -P, --publish-all                    Publish all exposed ports to random ports
+  
+  -t, --tty                            Allocate a pseudo-TTY
+  
+  -u, --user string                    Username or UID (format: <name|uid>[:<group|gid>])
+  
+  -v, --volume list                    Bind mount a volume
+  
+  -w, --workdir string                 Working directory inside the container
+  
+  --entrypoint string              Overwrite the default ENTRYPOINT of the image
+
 ### ###########################
 ### ###########################
 
@@ -167,8 +212,9 @@ $ docker top containername
 $ docker container stats containername
 
 
-
 ### To build a docker image using a Dockerfile we can use the docker image build command and provide it the directory where the Dockerfile exists. The --tag option allows us to name and tag the docker image.
+
+$ docker build
 
 $ docker image build . --tag "dockerimagename:version"
 
@@ -224,6 +270,14 @@ $ docker run -v /data/app:usr/src/app myapp
 
 $ docker info
 
+### Shows history of images
+
+$ docker history
+
+### Tags an image to a name
+
+$ docker tag
+
 ### To login to the docker registry
 
 $ docker login
@@ -261,6 +315,26 @@ $ docker network disconnect
 ### Display detailed information on one or more networks
 
 $ docker network inspect
+
+### Gets events from container
+
+$ docker events
+
+### Shows public facing port of container
+
+$ docker port
+
+### Show running processes in container
+
+$ docker top
+
+### Shows containers resource usage statistics
+
+$ docker stats
+
+### shows changed files in the container's FS
+
+$ docker diff
 
 ### Docker gives 3 default networks: bridge, none and host. When you start Docker, a default bridge network (also called bridge) is created automatically, and newly-started containers connect to it unless otherwise specified.
 
@@ -313,6 +387,10 @@ $ docker run -dit — restart [restart-policy-value] [container_name]
 
 
 ######################################################
+### Removes an Image
+
+$ docker rmi
+
 # To delete all containers including its volumes use:
 
 docker rm -vf $(docker ps -aq)
