@@ -356,30 +356,39 @@ $ docker run –p 80:5000 nginx  (in this case 5000 is Container port)
 
 ## Docker Volumes commands
 ### Create a volume
+
 $ docker volume create      
 
 ### Display detailed information on one or more volumes
+
 $ docker volume inspect     
 
 ### List volumes
+
 $ docker volume ls          
 
 ### Remove all unused local volumes
+
 $ docker volume prune       
 
 ### Remove one or more volumes
+
 $ docker volume rm          
 
 ######################################################
 
 ## container restart by itself while using certain docker-defined policies while using the $ docker run command. 
+
 ### Following are the available policies:
 
 1. Oﬀ: In this, the container won’t be restarted in case it's stopped or it fails.
+
 2. On-failure: Here, the container restarts by itself only when it experiences
 failures not associated with the user.
+
 3. Unless-stopped: Using this policy, ensures that a container can restart only
 when the command is executed to stop it by the user.
+
 4. Always: Irrespective of the failure or stopping, the container always gets
 restarted in this type of policy.
 
@@ -406,11 +415,13 @@ Remember, you should remove all the containers before removing all the images fr
 In case you are working on Windows (Powershell),
 
 $images = docker images -a -q
+
 foreach ($image in $images) { docker image rm $image -f }
 
 Based on the comment from CodeSix, one liner for Windows Powershell,
 
 docker images -a -q | % { docker image rm $_ -f }
+
 For Windows using command line,
 
 for /F %i in ('docker images -a -q') do docker rmi -f %i
@@ -421,29 +432,53 @@ for /F %i in ('docker images -a -q') do docker rmi -f %i
 $ sudo tree -ACFL 2 /var/lib/docker
 
 /var/lib/docker/
+
 ├── buildkit/
+
 │   ├── cache.db
+
 │   ├── containerdmeta.db
+
 │   ├── content/
+
 │   ├── executor/
+
 │   ├── metadata_v2.db
+
 │   └── snapshots.db
+
 ├── containers/
+
 ├── image/
+
 │   └── overlay2/
+
 ├── network/
+
 │   └── files/
+
 ├── overlay2/
+
 │   ├── 01114513b5469c193c13e48dacf66265ee0ea291a4fedaff565d7bb9c2992a6e/
+
 │   ├── c71cf20b0cc99aed5ba1b4f0f95a79648fc9bd8247047696c9b94a81be3a4692/
+
 │   └── l/
+
 ├── plugins/
+
 │   ├── storage/
+
 │   └── tmp/
+
 ├── runtimes/
+
 ├── swarm/
+
 ├── tmp/
+
 ├── trust/
+
 └── volumes/
     ├── backingFsBlockDev
     └── metadata.db
